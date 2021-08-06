@@ -1,17 +1,24 @@
 const pwdCmd = require("./pwd");
 const lsCmd = require("./ls");
+const catCmd = require("./cat");
 
-function prompting() {
-  process.stdout.write("\nprompt > ");
+process.stdout.write("\nprompt > ");
 
+const runningBash = () => {
+  let cmd = "";
   process.stdin.on("data", (data) => {
-    const cmd = data.toString().trim();
+    inputs = data.toString().trim().split(" ");
+    cmd = inputs[0];
+    file = inputs[1];
+
     if (cmd === "pwd") {
       pwdCmd();
     } else if (cmd === "ls") {
       lsCmd();
+    } else if (cmd === "cat") {
+      catCmd(file);
     }
   });
-}
+};
 
-prompting();
+runningBash();
