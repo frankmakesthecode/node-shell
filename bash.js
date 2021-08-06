@@ -1,6 +1,7 @@
 const pwdCmd = require("./pwd");
 const lsCmd = require("./ls");
 const catCmd = require("./cat");
+const curlCmd = require("./curl");
 
 process.stdout.write("\nprompt > ");
 
@@ -17,6 +18,8 @@ const runningBash = () => {
       lsCmd();
     } else if (cmd === "cat") {
       catCmd(file);
+    } else if (cmd === "curl") {
+      curlCmd(file);
     }
   });
 };

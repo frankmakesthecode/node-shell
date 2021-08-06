@@ -5,7 +5,7 @@ function printFile(file) {
     if (err) {
       throw err;
     } else {
-      console.log(data);
+      process.stdout.write(data);
     }
   });
 }
